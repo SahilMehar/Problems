@@ -11,7 +11,7 @@ public:
             {
                 if(stk.size() == 0)
                     return 0;
-                if(s[i] == '}' && stk.top() == '{' || s[i] == ']' && stk.top() == '[' || s[i] ==                        ')' && stk.top() == '(')
+                if(s[i] == '}' && stk.top() == '{' || s[i] == ']' && stk.top() == '[' || s[i] == ')' && stk.top() == '(')
                     stk.pop();
                 else
                     return 0;
