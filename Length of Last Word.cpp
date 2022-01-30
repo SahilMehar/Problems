@@ -20,3 +20,5 @@ public:
         return (count);
     }
 };
+//INPUT: HELLO WORLD
+//OUTPUT: 5
