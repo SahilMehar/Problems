@@ -8,11 +8,11 @@ public:
         {
             mp[nums[i]]++;
         }
-        for(int i = 0; i < nums.size(); i++)
+        for(auto x : mp)
         {
-            if(mp[nums[i]] == 1)
+            if(x.second == 1)
             {
-                sum += nums[i];
+                sum += x.first;
             }
         }
         return sum;
