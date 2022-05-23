@@ -4,20 +4,14 @@ public:
     {
         vector<int> temp;
         int m = matrix.size(), n = matrix[0].size();
-        for(int i = 0; i < m; i++)
-        {
-            for(int j = 0; j < n; j++)
-            {
-                temp.push_back(matrix[i][j]);
-            }
-        }
-        int l = 0, r = temp.size()-1;
+        int l = 0, r = (m*n)-1;
         while(l <= r)
         {
             int mid = l + (r-l)/2;
-            if(temp[mid] == target)
+            int num = matrix[mid/n][mid%n];
+            if(num == target)
                 return true;
-            else if(temp[mid] > target)
+            else if(num > target)
                 r = mid - 1;
             else
                 l = mid + 1;
