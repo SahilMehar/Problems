@@ -2,8 +2,6 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) 
     {
-        if(s.length() == 0)
-            return 0;
         int i = 0, j = 0, mx = 0;
         unordered_map<char, int> mp;
         while(j < s.length())
