@@ -10,18 +10,41 @@
  */
 class Solution {
 public:
+    ListNode *rev(ListNode *head)
+    {
+        ListNode *curr = head, *prev = NULL, *temp;
+        while(curr != NULL)
+        {
+            temp = curr -> next;
+            curr -> next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
+    }
     int pairSum(ListNode* head) 
     {
-        int max = INT_MIN;
-        vector<int> v;
-        ListNode *curr = head;
-        for(curr = head; curr != NULL; curr = curr -> next)
-            v.push_back(curr -> val);
-        for(int i = 0; i < v. size(); i++)
+        int n = 0, mx = INT_MIN;
+        ListNode *curr = head, *temp;
+        while(curr != NULL)
         {
-            if(v[i]+v[v.size()-1-i] > max)
-                max = v[i]+v[v.size()-1-i];
+            n++;
+            curr = curr -> next;
         }
-        return max;
+        curr = head;
+        for(int i = 0; i < (n/2)-1; i++)
+            curr = curr -> next;
+        
+        temp = curr -> next;
+        curr -> next = NULL;
+        temp = rev(temp);
+        curr = head;
+        while(curr != NULL)
+        {
+            mx = max(mx,(curr->val + temp->val));
+            curr = curr -> next;
+            temp = temp -> next;
+        }
+        return mx;
     }
 };
